@@ -6,4 +6,14 @@ spring:
     config:
       server:
         git:
-          uri: C:\work\MSTraining\PuneDec10\labconfigs
+          uri: file://C:\work\MSTraining\PuneDec10\labconfigs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+          

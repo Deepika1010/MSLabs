@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -16,6 +17,7 @@ import com.ms.training.SimpleWeb.model.Event;
 import com.ms.training.SimpleWeb.model.EventRepository;
 
 @SpringBootApplication
+@RefreshScope
 public class SimpleWebApplication {
 
 	private static Logger log = LoggerFactory.getLogger(SimpleWebApplication.class);

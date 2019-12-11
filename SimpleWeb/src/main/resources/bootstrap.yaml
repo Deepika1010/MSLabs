@@ -1,3 +1,32 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: simpleweb
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+server:
+  port: 8080
+  #servlet:
+  #  context-path: /ms
+  
+
+management:
+  server:
+    port: 9090
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: ERROR
+    com.ms: DEBUG
+
 ---
 spring:
   profiles: dev
@@ -23,3 +52,13 @@ logging:
   level:
     root: ERROR
     com.spring.microservices: DEBUG
+    
+---
+spring:
+  profiles: qa
+greeting: Hello from QA.
+
+---
+spring:
+  profiles: prod
+greeting: Hello from PROD.
