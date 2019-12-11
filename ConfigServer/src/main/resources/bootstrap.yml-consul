@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: consul
+  application:
+    name: configserver
+  cloud:
+   config:
+    server:
+     bootstrap: true
+   consul:
+      enabled: true
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true

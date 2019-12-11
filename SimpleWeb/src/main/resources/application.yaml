@@ -44,7 +44,7 @@ logging:
   level:
     root: ERROR
     com.spring.microservices: DEBUG
-greeting: Hello from DEV.
+
 
 ---
 spring:

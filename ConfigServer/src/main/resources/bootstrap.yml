@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: git, vault
+  cloud:
+    config:
+      server:
+        git:
+          uri: C:\work\MSTraining\config-git
+          order: 1
+          force-pull: true
+          deleteUntrackedBranches: true
+        vault:
+          port: 8200
+          host: 127.0.0.1
+          scheme: http
+          authentication: TOKEN
+          token: s.H7NhLWIvqbFEUk55JCyXDWBN
+          kv-version: 2
+          order: 2
+    vault:
+      token: s.H7NhLWIvqbFEUk55JCyXDWBN
+      authentication: TOKEN
+          
