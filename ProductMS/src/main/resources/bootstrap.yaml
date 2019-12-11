@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: productms
+  profiles:
+    active: dev #-Dspring.profiles.active=qa
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  data:
+    rest:
+      base-path: /datarest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+---
+spring:
+  profiles: dev
+  h2:
+    console:
+      enabled: true
+      path: /h2 
+  datasource:
+    url: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+   # driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        show_sql: false
+        ddl-auto: create-drop
+logging:
+  level:
+    root: ERROR
+    com.spring.microservices: DEBUG
+      
+greeting: "Hello From DEV"
+
+---
+spring:
+  profiles: qa
+  cloud:
+    config:
+      uri: http://localhost:8888
+     # discovery:
+     #   enabled: true
+      fail-fast: true
+  datasource:
+    url: ${mysql.secure.mysqlurl}
+    username: ${mysql.secure.mysqluser}
+    password: ${mysql.secure.mysqlpassword}
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa: 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        enable_lazy_load_no_trans: true
+        show_sql: ${mysql.secure.mysql_show_sql}
+        ddl-auto: none 
+ 
+logging:
+  level:
+    root: ERROR
+    com.spring.microservices: DEBUG
+greeting: ${envgreeting} 
+
+---
+spring:
+  profiles: prod
+logging:
+  level:
+    root: ERROR
+    com.spring.microservices: ERROR
+greeting: "Hello From PROD"
+
+
+
+

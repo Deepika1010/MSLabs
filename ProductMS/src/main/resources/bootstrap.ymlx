@@ -1,0 +1,14 @@
+---
+spring:
+  profiles: 
+    active: qa
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+      fail-fast: true
+  #datasource:
+  #  url: ${mysql.secure.mysqlurl}
+  #  username: ${mysql.secure.mysqluser}
+  #  password: ${mysql.secure.mysqlpassword}
+  #  driver-class-name: com.mysql.jdbc.Driver

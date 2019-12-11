@@ -1,0 +1,4 @@
+spring:
+  profiles: stg
+
+greeting: "Hello From Staging"
